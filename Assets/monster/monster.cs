@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class monster : MonoBehaviour
+namespace Monster
 {
-    public Transform destination; // Khai báo biến destination kiểu Vector3
-
-    public float speed = 1F; // Khai báo tốc độ di chuyển của Object
-
-    void Start()
+    public class monster : MonoBehaviour
     {
-        destination = GameObject.Find("Circle").transform;   
-    }
+        public Transform destination; // Khai báo biến destination kiểu Vector3
 
-    // Update được gọi mỗi frame
-    void Update()
-    {
-        float step = speed * Time.deltaTime; // Tính toán khoảng cách Object di chuyển trong mỗi frame
-        transform.position = Vector3.MoveTowards(transform.position, destination.position, step); // Di chuyển Object đến vị trí đích
+        public float speed = 1F; // Khai báo tốc độ di chuyển của Object
+
+        void Start()
+        {
+            destination = GameObject.Find("Circle").transform;
+        }
+
+        // Update được gọi mỗi frame
+        void Update()
+        {
+            float step = speed * Time.deltaTime; // Tính toán khoảng cách Object di chuyển trong mỗi frame
+            transform.position = Vector3.MoveTowards(transform.position, destination.position, step); // Di chuyển Object đến vị trí đích
+        }
     }
 }

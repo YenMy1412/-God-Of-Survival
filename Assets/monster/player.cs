@@ -2,33 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player : MonoBehaviour
+namespace Monster
 {
-
-    float move = 5;
-
-    // Start is called before the first frame update
-    void Start()
+    public class player : MonoBehaviour
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Vector3 v = transform.position;
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        if (horizontal != 0)
+        float move = 5;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            v.x += horizontal * move * Time.deltaTime;
+
         }
 
-        if (vertical != 0)
+        // Update is called once per frame
+        void Update()
         {
-            v.y += vertical * move * Time.deltaTime;
+            Vector3 v = transform.position;
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+            if (horizontal != 0)
+            {
+                v.x += horizontal * move * Time.deltaTime;
+            }
+
+            if (vertical != 0)
+            {
+                v.y += vertical * move * Time.deltaTime;
+            }
+            // move
+            transform.position = v;
         }
-        // move
-        transform.position = v;
     }
 }
